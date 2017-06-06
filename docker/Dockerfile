@@ -18,6 +18,13 @@ RUN pip2 install pyyaml && \
 RUN git clone https://github.com/OpenTidalFarm/OpenTidalFarm.git
 RUN cd OpenTidalFarm; git submodule init; git submodule update
 
+# Extras for kthyng
+
+RUN pip2 install git+git://github.com/kthyng/octant.git && \
+    pip2 install netCDF4 && \
+    pip2 install pyproj && \
+    pip2 install https://github.com/kthyng/tracpy/archive/master.zip
+
 USER fenics
 COPY WELCOME $FENICS_HOME/WELCOME
 
